@@ -1,0 +1,42 @@
+#to send a request  type CTRL + ALT + R 
+@ROUTE=http://localhost:8080/subscribers
+@default=http://localhost:8080
+@ID = 5eeee30bf291e71bbc5c1f7d
+
+###
+GET {{default}}
+
+###
+GET {{ROUTE}}
+###
+POST {{ROUTE}}/getByName
+Content-Type: application/json
+
+{
+  "name": "Sara"
+}
+
+
+###
+POST {{ROUTE}}
+Content-Type: application/json
+
+{
+    "name": "Jonas",
+    "subscribedChannel": "Mateus Henrique"
+}
+
+###
+GET {{ROUTE}}/{{ID}}
+
+###
+DELETE {{ROUTE}}/{{ID}}
+
+###
+PATCH {{ROUTE}}/{{ID}}
+Content-Type: application/json
+
+{
+  "name": "Pequeno Marcos"
+}
+
